@@ -116,4 +116,6 @@ public interface Arguments {
    * named tokens held within this object.
    */
   JsonElement toJson();
+
+    String valueAsColumnName(String s);
 }

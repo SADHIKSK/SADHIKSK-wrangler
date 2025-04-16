@@ -61,4 +61,8 @@ public interface TransientStore extends Serializable {
    * @return list of all the variables.
    */
   Set<String> getVariables();
+
+    void put(String totalNanos, long l);
+
+  long getLong(String totalBytes, long l);
 }

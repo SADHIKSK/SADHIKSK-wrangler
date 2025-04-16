@@ -1,0 +1,5 @@
+1. "Generate ANTLR4 lexer and parser rules for byte sizes (e.g., 10KB, 1.5MB) and time durations (e.g., 100ms, 2s)."
+2. "Write a Java class to parse a string like '10KB' into bytes, supporting KB, MB, GB, TB."
+3. "Create JUnit tests for a Java class that parses time durations into nanoseconds."
+4. "Design a Java class implementing a Wrangler directive to aggregate byte sizes and time durations."
+5. "Explain how to implement an ANTLR visitor method to handle custom token types."

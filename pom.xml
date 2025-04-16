@@ -468,7 +468,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
-            <version>3.1.2</version>
+            <version>3.0.0</version>
             <dependencies>
                 <dependency>
                   <groupId>org.apache.maven.surefire</groupId>
@@ -489,6 +489,7 @@
               <environmentVariables>
                 <GOOGLE_APPLICATION_CREDENTIALS>
                   ${GOOGLE_APPLICATION_CREDENTIALS}
+                  ${SERVICE_ACCOUNT_FILE_PATH}
                 </GOOGLE_APPLICATION_CREDENTIALS>
                 <!--suppress UnresolvedMavenProperty -->
                 <SERVICE_ACCOUNT_TYPE>
