@@ -56,4 +56,6 @@ public interface Token extends Serializable {
    * @return {@code JsonElement} object containing members of  implementing class.
    */
   JsonElement toJson();
+
+    String getRaw();
 }

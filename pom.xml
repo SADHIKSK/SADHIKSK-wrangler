@@ -324,9 +324,18 @@
       <build>
         <plugins>
           <!-- Source JAR -->
+          <!--suppress MavenModelInspection -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>org.apache.maven.plugin-tools</groupId>
+                <artifactId>maven-plugin-annotations</artifactId>
+                <version>3.6.0</version>
+                <scope>provided</scope>
+              </dependency>
+            </dependencies>
             <version>2.2.1</version>
             <configuration>
               <excludeResources>true</excludeResources>
@@ -374,7 +383,9 @@
             <artifactId>maven-gpg-plugin</artifactId>
             <version>1.5</version>
             <configuration>
+              <!--suppress UnresolvedMavenProperty -->
               <passphrase>${gpg.passphrase}</passphrase>
+              <!--suppress UnresolvedMavenProperty -->
               <useAgent>${gpg.useagent}</useAgent>
             </configuration>
             <executions>
@@ -389,7 +400,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
-            <version>2.5.3</version>
+            <version>3.0.0-M1</version>
             <configuration>
               <tag>v${releaseVersion}</tag>
               <tagNameFormat>v@{project.version}</tagNameFormat>
@@ -435,6 +446,8 @@
       <properties>
         <testSourceLocation>src/e2e-test/java</testSourceLocation>
         <TEST_RUNNER>TestRunner.java</TEST_RUNNER>
+        <SERVICE_ACCOUNT_FILE_PATH>path/to/your/service-account-file.json</SERVICE_ACCOUNT_FILE_PATH>
+        <SERVICE_ACCOUNT_JSON>path/to/your/service-account.json</SERVICE_ACCOUNT_JSON>
       </properties>
       <build>
         <testResources>
@@ -455,13 +468,13 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-failsafe-plugin</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.2</version>
             <dependencies>
-              <dependency>
-                <groupId>org.apache.maven.surefire</groupId>
-                <artifactId>surefire-junit47</artifactId>
-                <version>3.0.0</version>
-              </dependency>
+                <dependency>
+                  <groupId>org.apache.maven.surefire</groupId>
+                  <artifactId>surefire-junit-platform</artifactId>
+                  <version>3.0.0</version>
+                </dependency>
             </dependencies>
             <configuration>
               <includes>
@@ -477,6 +490,7 @@
                 <GOOGLE_APPLICATION_CREDENTIALS>
                   ${GOOGLE_APPLICATION_CREDENTIALS}
                 </GOOGLE_APPLICATION_CREDENTIALS>
+                <!--suppress UnresolvedMavenProperty -->
                 <SERVICE_ACCOUNT_TYPE>
                   ${SERVICE_ACCOUNT_TYPE}
                 </SERVICE_ACCOUNT_TYPE>

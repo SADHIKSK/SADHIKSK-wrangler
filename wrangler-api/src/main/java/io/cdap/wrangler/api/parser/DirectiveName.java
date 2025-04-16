@@ -48,4 +48,9 @@ public class DirectiveName implements Token {
     object.addProperty("value", value);
     return object;
   }
+
+  @Override
+  public String getRaw() {
+    return "";
+  }
 }
